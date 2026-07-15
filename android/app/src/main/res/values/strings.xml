@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">IndiaCloud</string>
+    <string name="loading">Loading panel...</string>
+    <string name="permission_camera">Camera Access</string>
+    <string name="permission_microphone">Microphone Access</string>
+    <string name="permission_storage">Storage Access</string>
+</resources>

@@ -1,0 +1,19 @@
+.web-panel-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.web-panel-iframe {
+  flex: 1;
+  border: none;
+  outline: none;
+  background-color: #0a0e27;
+  width: 100%;
+  height: 100%;
+}
+
+.web-panel-iframe:focus {
+  outline: none;
+}

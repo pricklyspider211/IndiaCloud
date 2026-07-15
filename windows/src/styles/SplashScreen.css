@@ -1,0 +1,36 @@
+.splash-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%);
+}
+
+.splash-logo {
+  width: 200px;
+  height: 200px;
+  margin-bottom: 20px;
+  opacity: 0;
+  animation: fadeIn 0.5s ease-in forwards;
+}
+
+.splash-text {
+  font-size: 32px;
+  font-weight: bold;
+  color: #00bfff;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  opacity: 0;
+  animation: fadeIn 0.5s ease-in 0.2s forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
