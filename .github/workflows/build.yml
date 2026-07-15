@@ -60,7 +60,24 @@ jobs:
 
       - name: Install Dependencies
         working-directory: windows
-        run: npm install
+        shell: pwsh
+        run: |
+          $maxAttempts = 3
+          for ($i = 1; $i -le $maxAttempts; $i++) {
+            Write-Host "npm install attempt $i of $maxAttempts"
+            if (Test-Path node_modules) {
+              Remove-Item -Recurse -Force node_modules
+            }
+            npm install --no-audit --no-fund
+            if (Test-Path "node_modules\.bin\react-scripts.cmd") {
+              Write-Host "Install verified: react-scripts is present."
+              exit 0
+            }
+            Write-Host "Install did not produce react-scripts binary, retrying..."
+            Start-Sleep -Seconds 5
+          }
+          Write-Error "npm install failed to produce a working node_modules after $maxAttempts attempts."
+          exit 1
 
       - name: Build React
         working-directory: windows
@@ -113,4 +130,3 @@ jobs:
           echo " Build Finished Successfully "
           echo "=============================="
           ls -R artifacts
-
