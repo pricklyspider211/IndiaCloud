@@ -7,6 +7,7 @@ import android.os.Looper
 import androidx.appcompat.app.AppCompatActivity
 import android.view.animation.AlphaAnimation
 import android.widget.ImageView
+import android.widget.TextView
 
 class SplashActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -14,6 +15,7 @@ class SplashActivity : AppCompatActivity() {
         setContentView(R.layout.activity_splash)
 
         val logoView = findViewById<ImageView>(R.id.splashLogo)
+        val footerView = findViewById<TextView>(R.id.splashFooter)
 
         // Fade in animation
         val fadeIn = AlphaAnimation(0f, 1f).apply {
@@ -21,6 +23,7 @@ class SplashActivity : AppCompatActivity() {
         }
 
         logoView.startAnimation(fadeIn)
+        footerView.startAnimation(fadeIn)
 
         // Delay for 2 seconds before launching MainActivity
         Handler(Looper.getMainLooper()).postDelayed({
